@@ -8,10 +8,21 @@
 function Car(manufacturer, model, year) {
     this.manufacturer = manufacturer;
     this.model = model;
-    this.year = year;
+    this.year = year || new Date().getFullYear();
+	
+	this.getInfo = this.toString = function() {
+		return this.manufacturer + ' ' + this.model + ' ' + this.year;
+	}
+	
+	this.getDetailedInfo = function(){
+		return 'Производитель: ' + this.manufacturer + '. '
+			+ 'Модель: ' + this.model + '. ' 
+			+ 'Год: ' + this.year
+	}
+	
 }
-// @TODO: если конструктор вызывается без указания текущего года, то подставлять текущий
-// @TODO: реализовать методы вывода информации о машине: 
+// @DONE: если конструктор вызывается без указания текущего года, то подставлять текущий
+// @DONE: реализовать методы вывода информации о машине: 
 // console.log(bmw); // BMW X5 2010
 // console.log(bmw.getInfo()); // BMW X5 2010
 // console.log(bmw.getDetailedInfo()); // Производитель: BMW. Модель: X5. Год: 2010
@@ -29,16 +40,47 @@ var bmw = new Car("BMW", "X5", 2010),
 function CarDealer(name) {
     this.name = name;
     this.cars = [];
+	
+	var self = this;
+	this.add = function() {
+		self.cars = self.cars.concat(
+			Array.prototype.splice.call(arguments, 0, arguments.length)
+		);
+		return self;
+	};
+	
+	this.setPrice = function(id, price) {
+		for(var i = 0, count = self.cars.length; i < count; i++ ) {
+			if(self.cars[i].toString() === id){
+				self.cars[i].price = price;
+			}
+		}
+		return self;
+	};
+	
+	this.list = function(){
+		return self.cars.join(', ');
+	};
+	
+	this.listByCountry = function(country){
+		var _cars = [];
+		for(var i = 0, count = self.cars.length; i < count; i++) {
+			if(getCountry.call(self.cars[i])===country){
+				_cars.push(self.cars[i]);
+			}
+		}
+		return _cars.join(', ');
+	}
 }
 
 var yandex = new CarDealer('Яндекс.Авто');
 
-// @TODO: реализовать метод добавления машин в автосалон. Предусмотреть возможность добавления одной машины, нескольких машин.
+// @DONE: реализовать метод добавления машин в автосалон. Предусмотреть возможность добавления одной машины, нескольких машин.
 yandex
-    .add(toyouta)
+    .add(toyota)
     .add(bmw, audi);
 
-// @TODO: реализовать метод установки цены на машину
+// @DONE: реализовать метод установки цены на машину
 /**
  * Установить цену на машину
  * @param {string} car идентификатор машины
@@ -51,7 +93,7 @@ yandex
     .setPrice('Audi Q5 2012', '€3000')
     .setPrice('Toyota Camry 2012', '¥3000');
 
-// @TODO: реализовать вывод списка автомобилей в продаже, с фильтрацией по стране производителю, используя метод getCountry:
+// @DONE: реализовать вывод списка автомобилей в продаже, с фильтрацией по стране производителю, используя метод getCountry:
 function getCountry() {
     switch (this.manufacturer.toLowerCase()) {
         case 'bmw':
@@ -67,4 +109,3 @@ yandex.list(); //BMW X5 2010, Audi Q5 2012, Toyota Camry 2012
 yandex.listByCountry('Germany'); //BMW X5 2010, Audi Q5 2012
 
 // @TODO: бонус! выводить список машин с ценой в рублях.
-Подробнее: http://company.yandex.ru/job/vacancies/shri.xml
