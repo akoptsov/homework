@@ -8,38 +8,43 @@ Usage: printargs.sh [OPTIONS] [ARGUMENTS]
 OPTIONS:
   -h      print help message
   -m MSG  custom message
+  -v      verbose mode: print all the provided arguments
 
 Examples:
   printargs.sh a b c
   printargs.sh -m 'Arguments count: ' a b c
+  printargs.sh -v -m 'Verbose arguments: ' a b c
   printargs.sh -h
-
 EOF
 }
 
-while getopts “hm:” OPTION # TODO: add '-v' option for verbose mode
+while getopts hm:v OPTION
 do
     case $OPTION in
         h)
             usage
-            exit 1
-            shift;;
+            exit 1;;
         m)
-            MESSAGE=$OPTARG
-            shift;shift;;
+            MESSAGE=$OPTARG;;
+	v)
+            VERBOSE=1;;
     esac
 done
+shift $(($OPTIND-1))
 
 COUNT=0
-
-for ARG in $@; do
-    # TODO: add '-v' option for verbose mode
-    # and print each argument
-    let COUNT+=1
-done
 
 if [[ "$MESSAGE" != "" ]]; then
     echo $MESSAGE
 fi
+
+for ARG in $@; do
+    if [[ "$VERBOSE" == "1" ]]; then
+        echo "$ARG"
+    fi
+    
+    let COUNT+=1
+    
+done
 
 echo $COUNT
