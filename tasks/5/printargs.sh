@@ -8,12 +8,12 @@ Usage: printargs.sh [OPTIONS] [ARGUMENTS]
 OPTIONS:
   -h      print help message
   -m MSG  custom message
-  -v      verbose mode: print all the provided arguments
+  -v      verbose mode: print all the arguments in [ARGUMENTS]
 
 Examples:
   printargs.sh a b c
   printargs.sh -m 'Arguments count: ' a b c
-  printargs.sh -v -m 'Verbose arguments: ' a b c
+  printargs.sh -v -m 'Total: ' a b c
   printargs.sh -h
 EOF
 }
@@ -34,9 +34,6 @@ shift $(($OPTIND-1))
 
 COUNT=0
 
-if [[ "$MESSAGE" != "" ]]; then
-    echo $MESSAGE
-fi
 
 for ARG in $@; do
     if [[ "$VERBOSE" == "1" ]]; then
@@ -46,5 +43,9 @@ for ARG in $@; do
     let COUNT+=1
     
 done
+
+if [[ "$MESSAGE" != "" ]]; then
+    echo $MESSAGE
+fi
 
 echo $COUNT

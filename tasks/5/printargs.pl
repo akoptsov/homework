@@ -5,20 +5,24 @@ use Getopt::Long;
 use Pod::Usage;
 
 my $help;
+my $arg;
 my $message = '';
+my $verbose = '';
 
 @ARGV and GetOptions(
-    "h" => \$help,
+    "h"   => \$help,
     "m:s" => \$message,
-    # TODO: add '-v' option for verbose mode
+    "v"   => \$verbose
 ) or pod2usage(1);
 pod2usage(-verbose => 2, -exitval => 2) if $help;
 
 my $count = 0;
 
-foreach(@ARGV) {
-    # TODO: add '-v' option for verbose mode
-    # and print each argument
+foreach $arg (@ARGV) {
+    if($verbose ne ''){
+        print($arg."\n");
+    }
+    
     $count++;
 }
 
@@ -44,11 +48,14 @@ __END__
 
     -m MSG  Specify a custom message.
 
+    -v      Verbose mode: print all the arguments in [arguments]
 
 =head1 EXAMPLE
 
-    printargs.sh a b c
+    printargs.pl a b c
 
-    printargs.sh -m 'Arguments count: ' a b c
+    printargs.pl -m 'Arguments count: ' a b c
 
-    printargs.sh -h
+    printargs.pl -v -m 'Total: ' a b c
+
+    printargs.pl -h
