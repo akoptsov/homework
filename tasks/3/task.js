@@ -41,7 +41,17 @@ function CarDealer(name) {
     this.name = name;
     this.cars = [];
 	
-	var self = this;
+	var 
+		self = this,
+		priceReader = /\s*([^\d\s]+)\s*(\d+)\s*/i,
+		//@NOTE: в боевом режиме, обменник должен инициализироваться с какого-то источника курсов валют, и код тогда будет асинхронным.
+		// Поскольку это тестовое задание, он проинициализирован статически.
+		exchanger = new CurrencyManager({
+			'EUR': 0.805917,
+			'JPY': 78.557231,
+			'RUB': 31.569825
+		});
+		
 	this.add = function() {
 		self.cars = self.cars.concat(
 			Array.prototype.splice.call(arguments, 0, arguments.length)
@@ -52,7 +62,10 @@ function CarDealer(name) {
 	this.setPrice = function(id, price) {
 		for(var i = 0, count = self.cars.length; i < count; i++ ) {
 			if(self.cars[i].toString() === id){
-				self.cars[i].price = price;
+				var match = price.match(priceReader);
+				if(match.length >= 3){
+					self.cars[i].price = {currency: exchanger.resolve(match[1]), value: match[2]};
+				}
 			}
 		}
 		return self;
@@ -71,6 +84,43 @@ function CarDealer(name) {
 		}
 		return _cars.join(', ');
 	}
+	
+	this.listWithPrice = function(symbol){
+		var _cars = [];
+		for(var i = 0, count = self.cars.length; i < count; i++) {
+			var price = self.cars[i].price 
+				? exchanger.convert(self.cars[i].price.currency, self.cars[i].price.value, exchanger.resolve(symbol))
+				: 'unknown'
+			_cars.push(self.cars[i] +' - ' + symbol + price);
+		}
+		return _cars.join(', ');
+	}
+}
+/**
+ * Создаёт объект для работы с валютами
+ * @this {CurrencyManager}
+ * @param {object} courses - словарь валют вида 'обозначение' : курс
+ */
+var CurrencyManager = function(courses){
+	this.resolve = function (symbol){
+		switch(symbol){
+			case '€':
+				return 'EUR';
+			case '¥':
+				return 'JPY';
+			case 'руб.':
+				return 'RUB';
+			default:
+				return symbol;
+		}
+	};
+	
+	this.convert = function(from, value, to) {
+		if(courses[from] && courses[to]){
+			return (value * courses[to] / courses[from]).toFixed(2);
+		} else
+			throw TypeError('Unknown currency - can\'t convert!');
+	};
 }
 
 var yandex = new CarDealer('Яндекс.Авто');
@@ -97,9 +147,8 @@ yandex
 function getCountry() {
     switch (this.manufacturer.toLowerCase()) {
         case 'bmw':
-	case 'audi':
+        case 'audi':
             return 'Germany';
-
         case 'toyota':
             return 'Japan';
 	}
@@ -108,4 +157,6 @@ function getCountry() {
 yandex.list(); //BMW X5 2010, Audi Q5 2012, Toyota Camry 2012
 yandex.listByCountry('Germany'); //BMW X5 2010, Audi Q5 2012
 
-// @TODO: бонус! выводить список машин с ценой в рублях.
+// @DONE: бонус! выводить список машин с ценой в рублях.
+
+yandex.listWithPrice('руб.');
