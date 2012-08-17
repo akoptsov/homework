@@ -1,14 +1,469 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
-		<!--HTML5 shiv goes here-->
+		<link rel="stylesheet" type="text/css" href="/styles/index.css"/>
 		<!--jQuery goes here-->
 		
 		<!--styles will go here-->
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 	</head>
 	<body>
-		<h3>It works!</h3>
-		<p> Content goes here </p>
+		<div class="content-wrapper">
+			<header>
+				<h2 class="content-title">Анкета Школы Разработки Интерфейсов</h2>
+			</header>
+			
+			<article class="content">
+				<nav>
+					<a class="section-anchor" href="#general">Общие вопросы</a>
+					<a class="section-anchor" href="#experience">Опыт разработки</a>
+					<a class="section-anchor" href="#answers">Технические вопросы</a>
+				</nav>
+				<section id="general" class="section general">
+					<h3 class="section-title">Общие вопросы</h3>
+					<ul class="section-items">
+						<li>
+							<p class="item-name">ФИО</p>
+							<p class="item-content">Копцов Александр Александрович</p>
+						</li>
+						<li>
+							<p class="item-name">Год рождения</p>
+							<p class="item-content">1986</p>
+						</li>
+						<li>
+							<p class="item-name">Город, в котором живёте</p>
+							<p class="item-content">Москва</p>
+						</li>
+						<li>
+							<p class="item-name">Вуз, факультет, специальность, кафедра</p>
+							<ul class="item-content">
+								<li>МГУ им. М.В. Ломоносова</li>
+								<li>Механико-математический факультет, специальность Математика</li>
+								<li>Кафедра вычислительной математики</li>
+							</ul>
+						</li>
+						<li>
+							<p class="item-name">Год окончания вуза</p>
+							<p class="item-content">2008</p>
+						</li>
+						<li>
+							<p class="item-name">На каком уровне владеете английским языком?</p>
+							<p class="item-content">Advanced (at least)</p>
+						</li>
+						<li>
+							<p class="item-name">Чего вы ожидаете от участия в Школе?</p>
+							<ul class="item-content">
+								<li>Расширения знаний по разработке интерфейсов</li>
+								<li>Внесения структуры и ясности в имеющиеся знания</li>
+								<li>Повышения собственного уровня как специалиста</li>
+							</ul>
+						</li>
+						<li>
+							<p class="item-name">Откуда вы о нас узнали?</p>
+							<p class="item-content">Пришел на Яндекс-субботник 28.07.2012</p>
+						</li>
+					</ul>
+				</section>
+				<section id="experience" class="section experience">
+					<h3 class="section-title">Опыт разработки</h3>
+					<ul class="section-items">
+						<li>
+							<p class="item-name">Расскажите нам о вашем опыте разработки. Ничего не упускайте: это может быть как серьезный интерфейс, так и просто домашняя страничка.</p>
+							<p class="item-content">Text goes here</p>
+						</li>
+						<li>
+							<p class="item-name">Какие языки программирования, фреймворки и технологии вы использовали? Сложились ли у вас личные предпочтения?</p>
+							<p class="item-content">Text goes here</p>
+						</li>
+						<li>
+							<p class="item-name">Какие редакторы и среды разработки вы использовали? Чем обычно пользуетесь?</p>
+							<p class="item-content">Text goes here</p>
+						</li>
+						<li>
+							<p class="item-name">С какими ОС приходилось сталкиваться? Для каких целей вы их использовали?</p>
+							<p class="item-content">Text goes here</p>
+						</li>
+						<li>
+							<p class="item-name">Приходилось ли вам пользоваться системами контроля версий? Если да, то какими? Какая из них вам нравится больше всего?</p>
+							<p class="item-content">Text goes here</p>
+						</li>
+						<li>
+							<p class="item-name">Использовали ли вы системы постановки и ведения задач?</p>
+							<p class="item-content">Text goes here</p>
+						</li>
+						<li>
+							<p class="item-name">Какие полезные для фронтенд-разработчика ресурсы вы используете и можете посоветовать?</p>
+							<p class="item-content">Text goes here</p>
+						</li>
+						<li>
+							<p class="item-name">Работали ли вы где-нибудь? Какие у вас были должностные обязанности? Есть ли опыт работы в команде?</p>
+							<p class="item-content">Text goes here</p>
+						</li>
+					</ul>
+				</section>
+				<section id="answers" class="section answers">
+					<h3 class="section-title">Технические вопросы</h3>
+					<ul class="section-items">
+						<li>
+							<p class="item-name">Перечислите известные вам инструменты и приёмы для отладки кода в разных браузерах.</p>
+							<div class="item-content">
+								<p>В большинстве браузеров есть встроенные отладчики, либо соответствующие плагины (firebug), которые позволяют осуществлять отладку "на лету" 
+								(в IE нужно предварительно разрешить отладку скриптов в настройках браузера).</p>
+								
+								<p>Чуть интереснее обстоит дело с отладкой на машинах, к которым доступа фактически нет - тогда нужно делать механизм обработки исключений, отправляющий их на сервер с логами.
+								По этим логам можно пытаться узнать, что же происходит на машинах клиентов.</p>
+								
+								<p>Ну и конечно, нельзя не вспомнить <span class="code">console.log</span> и отладочный <span class="code">alert</span>.</p>
+							</div>
+						</li>
+						<li>
+							<p class="item-name">Опишите своими словами, что происходит в браузерах при клике на ссылку yandex.ru</p>
+							<p class="item-content">
+								ответ на вопрос номер 2
+							</p>
+						</li>
+						<li>
+							<p class="item-name">Предположим, что мы представляем автосалон по продаже японских и немецких автомобилей. У нас есть базовые классы и примеры их использования. Допишите недостающий код.</p>
+							<div class="item-content">
+								<pre xml:lang="javascript">
+/**
+ * Создает экземпляр Машины
+ * @this {Car}
+ * @param {string} manufacturer Производитель
+ * @param {string} model Модель
+ * @param {number} year Год производство
+ */
+function Car(manufacturer, model, year) {
+    this.manufacturer = manufacturer;
+    this.model = model;
+    this.year = year || new Date().getFullYear();
+	
+	this.getInfo = this.toString = function() {
+		return this.manufacturer + ' ' + this.model + ' ' + this.year;
+	}
+	
+	this.getDetailedInfo = function(){
+		return 'Производитель: ' + this.manufacturer + '. '
+			+ 'Модель: ' + this.model + '. ' 
+			+ 'Год: ' + this.year
+	}
+	
+}
+// @DONE: если конструктор вызывается без указания текущего года, то подставлять текущий
+// @DONE: реализовать методы вывода информации о машине: 
+// console.log(bmw); // BMW X5 2010
+// console.log(bmw.getInfo()); // BMW X5 2010
+// console.log(bmw.getDetailedInfo()); // Производитель: BMW. Модель: X5. Год: 2010
+
+var bmw = new Car("BMW", "X5", 2010),
+    audi = new Car("Audi", "Q5", 2012),
+    toyota = new Car("Toyota", "Camry");
+
+
+/**
+ * Создает экземпляр Автосалона
+ * @this {CarDealer}
+ * @param {string} name Название автосалона
+ */
+function CarDealer(name) {
+    this.name = name;
+    this.cars = [];
+	
+	var 
+		self = this,
+		priceReader = /\s*([^\d\s]+)\s*(\d+)\s*/i,
+		//@NOTE: в боевом режиме, обменник должен инициализироваться с какого-то источника курсов валют, и код тогда будет асинхронным.
+		// Поскольку это тестовое задание, он проинициализирован статически.
+		exchanger = new CurrencyManager({
+			'EUR': 0.805917,
+			'JPY': 78.557231,
+			'RUB': 31.569825
+		});
+		
+	this.add = function() {
+		self.cars = self.cars.concat(
+			Array.prototype.splice.call(arguments, 0, arguments.length)
+		);
+		return self;
+	};
+	
+	this.setPrice = function(id, price) {
+		for(var i = 0, count = self.cars.length; i < count; i++ ) {
+			if(self.cars[i].toString() === id){
+				var match = price.match(priceReader);
+				if(match.length >= 3){
+					self.cars[i].price = {currency: exchanger.resolve(match[1]), value: match[2]};
+				}
+			}
+		}
+		return self;
+	};
+	
+	this.list = function(){
+		return self.cars.join(', ');
+	};
+	
+	this.listByCountry = function(country){
+		var _cars = [];
+		for(var i = 0, count = self.cars.length; i < count; i++) {
+			if(getCountry.call(self.cars[i])===country){
+				_cars.push(self.cars[i]);
+			}
+		}
+		return _cars.join(', ');
+	}
+	
+	this.listWithPrice = function(symbol){
+		var _cars = [];
+		for(var i = 0, count = self.cars.length; i < count; i++) {
+			var price = self.cars[i].price 
+				? exchanger.convert(self.cars[i].price.currency, self.cars[i].price.value, exchanger.resolve(symbol))
+				: 'unknown'
+			_cars.push(self.cars[i] +' - ' + symbol + price);
+		}
+		return _cars.join(', ');
+	}
+}
+/**
+ * Создаёт объект для работы с валютами
+ * @this {CurrencyManager}
+ * @param {object} courses - словарь валют вида 'обозначение' : курс
+ */
+var CurrencyManager = function(courses){
+	this.resolve = function (symbol){
+		switch(symbol){
+			case '€':
+				return 'EUR';
+			case '¥':
+				return 'JPY';
+			case 'руб.':
+				return 'RUB';
+			default:
+				return symbol;
+		}
+	};
+	
+	this.convert = function(from, value, to) {
+		if(courses[from] && courses[to]){
+			return (value * courses[to] / courses[from]).toFixed(2);
+		} else
+			throw TypeError('Unknown currency - can\'t convert!');
+	};
+}
+
+var yandex = new CarDealer('Яндекс.Авто');
+
+// @DONE: реализовать метод добавления машин в автосалон. Предусмотреть возможность добавления одной машины, нескольких машин.
+yandex
+    .add(toyota)
+    .add(bmw, audi);
+
+// @DONE: реализовать метод установки цены на машину
+/**
+ * Установить цену на машину
+ * @param {string} car идентификатор машины
+ * @param {string} price стоимость
+ */
+// идентификатор машины составляется следующим образом "производитель модель год"
+// стоимость машины может быть задана в двух валютах: йена и евро.
+yandex
+    .setPrice('BMW X5 2010', '€2000')
+    .setPrice('Audi Q5 2012', '€3000')
+    .setPrice('Toyota Camry 2012', '¥3000');
+
+// @DONE: реализовать вывод списка автомобилей в продаже, с фильтрацией по стране производителю, используя метод getCountry:
+function getCountry() {
+    switch (this.manufacturer.toLowerCase()) {
+        case 'bmw':
+        case 'audi':
+            return 'Germany';
+        case 'toyota':
+            return 'Japan';
+	}
+}
+
+yandex.list(); //BMW X5 2010, Audi Q5 2012, Toyota Camry 2012
+yandex.listByCountry('Germany'); //BMW X5 2010, Audi Q5 2012
+
+// @DONE: бонус! выводить список машин с ценой в рублях.
+
+yandex.listWithPrice('руб.');</pre>
+							</div>
+						</li>
+						<li>
+							<p class="item-name">Найдите все текстовые файлы (*.txt), в имени которых содержится «yandex», а в содержимом — «школа разработки интерфейсов»</p>
+							<div class="item-content">
+								<pre>grep -i -r --include=\'*yandex*.txt\' \'школа разработки интерфейсов\'</pre>
+							</div>
+						</li>
+						<li>
+							<p class="item-name">Дана программа, реализованная одновременно на Bash, Python и Perl. Программа принимает произвольное количество аргументов и печатает их количество. Нужно добавить опцию -v для verbose-режима, в котором дополнительно выводится значение каждого из аргументов</p>
+							<ul class="item-content">
+								<li>
+									<p>Bash</p>
+									<pre>
+#!/usr/bin/env bash
+
+usage() {
+cat << EOF
+Usage: printargs.sh [OPTIONS] [ARGUMENTS]
+  Print the number of arguments.
+
+OPTIONS:
+  -h      print help message
+  -m MSG  custom message
+  -v      verbose mode: print all the arguments in [ARGUMENTS]
+
+Examples:
+  printargs.sh a b c
+  printargs.sh -m 'Arguments count: ' a b c
+  printargs.sh -v -m 'Total: ' a b c
+  printargs.sh -h
+EOF
+}
+
+while getopts hm:v OPTION
+do
+    case $OPTION in
+        h)
+            usage
+            exit 1;;
+        m)
+            MESSAGE=$OPTARG;;
+	v)
+            VERBOSE=1;;
+    esac
+done
+shift $(($OPTIND-1))
+
+COUNT=0
+
+
+for ARG in $@; do
+    if [[ "$VERBOSE" == "1" ]]; then
+        echo "$ARG"
+    fi
+    
+    let COUNT+=1
+    
+done
+
+if [[ "$MESSAGE" != "" ]]; then
+    echo $MESSAGE
+fi
+
+echo $COUNT</pre>
+								</li>
+								<li>
+									<p>Python</p>
+									<pre>
+#!/usr/bin/env python
+
+import argparse
+
+parser = argparse.ArgumentParser(description='Print the number of arguments.')
+parser.add_argument('arguments', metavar='ARG', type=str, nargs='*', help='some arguments')
+parser.add_argument('-m', dest='message', default='', help='custom message')
+parser.add_argument('-v', action='store_true', default=False, help='verbose mode: print all the arguments in [ARG]')
+
+args = parser.parse_args()
+
+count = 0
+
+for a in args.arguments:
+    if args.v:
+        print(a)
+    count += 1
+
+if args.message != '':
+    print(args.message)
+
+print(count)</pre>
+								</li>
+								<li>
+									<p>Perl</p>
+									<pre>
+#!/usr/bin/env perl
+
+use strict;
+use Getopt::Long;
+use Pod::Usage;
+
+my $help;
+my $arg;
+my $message = '';
+my $verbose = '';
+
+@ARGV and GetOptions(
+    "h"   => \$help,
+    "m:s" => \$message,
+    "v"   => \$verbose
+) or pod2usage(1);
+pod2usage(-verbose => 2, -exitval => 2) if $help;
+
+my $count = 0;
+
+foreach $arg (@ARGV) {
+    if($verbose ne ''){
+        print($arg."\n");
+    }
+    
+    $count++;
+}
+
+if($message ne "") {
+    print($message . "\n");
+}
+
+print($count . "\n");
+
+__END__
+
+=head1 NAME
+
+    printargs.pl - Print the number of arguments.
+
+=head1 SYNOPSIS
+
+    printargs.pl [options] [arguments]
+
+=head1 OPTIONS
+
+    -h      Show help message.
+
+    -m MSG  Specify a custom message.
+
+    -v      Verbose mode: print all the arguments in [arguments]
+
+=head1 EXAMPLE
+
+    printargs.pl a b c
+
+    printargs.pl -m 'Arguments count: ' a b c
+
+    printargs.pl -v -m 'Total: ' a b c
+
+    printargs.pl -h</pre>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<p class="item-name">Расскажите, в каком объёме и при каких обстоятельствах вы изучали следующие темы: языки программирования (императивные/декларативные, разные системы типов), структуры (классы, структуры данных, примитивные типы), парадигмы (события, ООП, параллельность/асинхронность, кеширование), алгоритмы (парсинг, сортировка, поиск), паттерны.</p>
+							<p class="item-content">
+								Ответ на вопрос номер 6
+							</p>
+						</li>
+					</ul>
+				</section>
+			</article>
+
+			<footer class="footer">
+				<p>&#9400; 2012, Копцов А. А. Все права запрещены.</p>
+			</footer>
+		</div>
 	</body>
 </html>
+
 
