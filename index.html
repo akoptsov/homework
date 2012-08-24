@@ -1,13 +1,32 @@
 ﻿<!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="/styles/index.css"/>
-		<!--jQuery goes here-->
 		
 		<!--styles will go here-->
+		<link rel="stylesheet" type="text/css" href="/syntax-highlighter/styles/shCoreDefault.css"/>
+		<!--link rel="stylesheet" type="text/css" href="/syntax-highlighter/styles/shThemeRDark.css"/-->
+		<link rel="stylesheet" type="text/css" href="/styles/index.css"/>
 		<!--[if lt IE 9]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="/syntax-highlighter/scripts/shCore.js"></script>
+		<script type="text/javascript" src="/syntax-highlighter/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="/syntax-highlighter/scripts/shBrushPerl.js"></script>
+		<script type="text/javascript" src="/syntax-highlighter/scripts/shBrushPython.js"></script>
+		<script type="text/javascript" src="/syntax-highlighter/scripts/shBrushBash.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				if(window.SyntaxHighlighter){
+					window.SyntaxHighlighter.all();
+					
+					$('.code-example').on('click', function(e) {
+						var $this = $(this);
+						$(e.target).is('.trigger') && $this.toggleClass('collapsed');
+					});
+				}
+			});
+		</script>
 	</head>
 	<body>
 		<div class="content-wrapper">
@@ -16,13 +35,15 @@
 			</header>
 			
 			<article class="content">
-				<nav>
+				<!--nav>
 					<a class="section-anchor" href="#general">Общие вопросы</a>
 					<a class="section-anchor" href="#experience">Опыт разработки</a>
 					<a class="section-anchor" href="#answers">Технические вопросы</a>
-				</nav>
+				</nav-->
 				<section id="general" class="section general">
-					<h3 class="section-title">Общие вопросы</h3>
+					<h3 class="section-title">
+						<span class="section-title-text">Общие вопросы</span>
+					</h3>
 					<ul class="section-items">
 						<li>
 							<p class="item-name">ФИО</p>
@@ -50,7 +71,7 @@
 						</li>
 						<li>
 							<p class="item-name">На каком уровне владеете английским языком?</p>
-							<p class="item-content">Advanced (at least)</p>
+							<p class="item-content">Advanced</p>
 						</li>
 						<li>
 							<p class="item-name">Чего вы ожидаете от участия в Школе?</p>
@@ -67,7 +88,9 @@
 					</ul>
 				</section>
 				<section id="experience" class="section experience">
-					<h3 class="section-title">Опыт разработки</h3>
+					<h3 class="section-title">
+						<span class="section-title-text">Опыт разработки</span>
+					</h3>
 					<ul class="section-items">
 						<li>
 							<p class="item-name">Расскажите нам о вашем опыте разработки. Ничего не упускайте: это может быть как серьезный интерфейс, так и просто домашняя страничка.</p>
@@ -104,7 +127,9 @@
 					</ul>
 				</section>
 				<section id="answers" class="section answers">
-					<h3 class="section-title">Технические вопросы</h3>
+					<h3 class="section-title">
+						<span class="section-title-text">Технические вопросы</span>
+					</h3>
 					<ul class="section-items">
 						<li>
 							<p class="item-name">Перечислите известные вам инструменты и приёмы для отладки кода в разных браузерах.</p>
@@ -115,7 +140,7 @@
 								<p>Чуть интереснее обстоит дело с отладкой на машинах, к которым доступа фактически нет - тогда нужно делать механизм обработки исключений, отправляющий их на сервер с логами.
 								По этим логам можно пытаться узнать, что же происходит на машинах клиентов.</p>
 								
-								<p>Ну и конечно, нельзя не вспомнить <span class="code">console.log</span> и отладочный <span class="code">alert</span>.</p>
+								<p>Ну и конечно, нельзя не вспомнить <span class="inline-code">console.log</span> и отладочный <span class="inline-code">alert</span>.</p>
 							</div>
 						</li>
 						<li>
@@ -127,7 +152,7 @@
 						<li>
 							<p class="item-name">Предположим, что мы представляем автосалон по продаже японских и немецких автомобилей. У нас есть базовые классы и примеры их использования. Допишите недостающий код.</p>
 							<div class="item-content">
-								<pre xml:lang="javascript">
+								<pre class="brush: js code">
 /**
  * Создает экземпляр Машины
  * @this {Car}
@@ -295,15 +320,18 @@ yandex.listWithPrice('руб.');</pre>
 						<li>
 							<p class="item-name">Найдите все текстовые файлы (*.txt), в имени которых содержится «yandex», а в содержимом — «школа разработки интерфейсов»</p>
 							<div class="item-content">
-								<pre>grep -i -r --include=\'*yandex*.txt\' \'школа разработки интерфейсов\'</pre>
+								<pre class="brush: bash; gutter: false code">grep -i -r --include=\'*yandex*.txt\' \'школа разработки интерфейсов\'</pre>
 							</div>
 						</li>
 						<li>
 							<p class="item-name">Дана программа, реализованная одновременно на Bash, Python и Perl. Программа принимает произвольное количество аргументов и печатает их количество. Нужно добавить опцию -v для verbose-режима, в котором дополнительно выводится значение каждого из аргументов</p>
 							<ul class="item-content">
-								<li>
-									<p>Bash</p>
-									<pre>
+								<li class="code-example collapsed">
+									<div class="trigger-container">
+										<span class="trigger">Bash</span>
+									</div>
+									<div class="code">
+										<pre class="brush: bash">
 #!/usr/bin/env bash
 
 usage() {
@@ -332,7 +360,7 @@ do
             exit 1;;
         m)
             MESSAGE=$OPTARG;;
-	v)
+        v)
             VERBOSE=1;;
     esac
 done
@@ -355,10 +383,14 @@ if [[ "$MESSAGE" != "" ]]; then
 fi
 
 echo $COUNT</pre>
+									</div>
 								</li>
-								<li>
-									<p>Python</p>
-									<pre>
+								<li class="code-example collapsed">
+									<div class="trigger-container">
+										<span class="trigger">Python</span>
+									</div>
+									<div class="code">
+										<pre class="brush: python">
 #!/usr/bin/env python
 
 import argparse
@@ -381,10 +413,14 @@ if args.message != '':
     print(args.message)
 
 print(count)</pre>
+									</div>
 								</li>
-								<li>
-									<p>Perl</p>
-									<pre>
+								<li class="code-example collapsed">
+									<div class="trigger-container">
+										<span class='trigger'>Perl</span>
+									</div>
+									<div class="code">
+										<pre class="brush: perl">
 #!/usr/bin/env perl
 
 use strict;
@@ -446,6 +482,7 @@ __END__
     printargs.pl -v -m 'Total: ' a b c
 
     printargs.pl -h</pre>
+									</div>
 								</li>
 							</ul>
 						</li>
