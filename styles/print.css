@@ -1,0 +1,91 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: Times New Roman, Georgia, serif;
+}
+.content-title {
+	padding-left: 3%;
+	text-align: center;
+}
+
+.content .section {
+	width: 100%;
+}
+
+.general, .experience {
+	page-break-after: always;
+}
+
+.section  .section-title {
+	padding-left: 3%;
+}
+
+.section  .section-items {
+	padding-left: 3%;
+	list-style-type: none;
+}
+
+.section .item-name {
+	font-weight: bold;
+}
+
+.section .item-content {
+	padding: 0px 15px;
+	text-align: justify;
+	list-style-type: none;
+}
+
+.inline-code {
+	font-family: Courier New;
+}
+
+.footer {
+	padding: auto 10px;
+	text-align: center;
+}
+
+.section-anchor {
+	width: 33%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.section-anchor:hover {
+	border: solid #A0A0A0 1px;
+	background-color: #E0E0E0;
+}
+
+.code-example .code {
+
+}
+
+.code-example.collapsed  .code{
+
+}
+.code-example .trigger-container{
+	margin-top: 5px;
+	padding: 5px 0px;
+}
+
+.js, .perl, .python, .bash {
+	font-size: small;
+}
+
+.syntaxhighlighter {
+	padding: 1px 0px;
+	font-size: small;
+}
+.syntaxhighlighter.nogutter {
+	padding-left: 10px !important;
+}
+
+.navigation {
+	display:none;
+}
+
+.footer {
+	display: none;
+}
+
+
+

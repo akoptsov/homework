@@ -12,35 +12,122 @@ body {
 	background: linear-gradient(to right, rgba(255,255,255,0) 2%,rgba(124,124,124,0.6) 5%,rgba(124,124,124,0.6) 95%,rgba(255,255,255,0) 98%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=1 );
 	*/
-	
-	
 	color: #3f3f3f;
-	background: url('/img/irongrip.png') 0 0 repeat;
+	background: url('/img/background/irongrip.png') 0 0 repeat;
 	
 	font-family: Verdana, Geneva, sans-serif;
 }
 .content-wrapper {
 	border: solid #7c7c7c;
 	border-width: 0px 0px;
-	padding: 1%;
+	padding: 10px;
 	
 	background-color: #eeeeee;
-	
-	
 	/*
 	-webkit-box-shadow: 0px 0px 20px #eeeeee;
 	-moz-box-shadow: 0px 0px 20px #eeeeee;
 	box-shadow: 0px 0px 20px #eeeeee;
 	*/
-	
-	background: url('/img/light_alu.png') 0 0 repeat;
+	background: url('/img/background/light_alu.png') 0 0 repeat;
 }
 
 .content-title {
-	padding-left: 3%;
 	text-align: center;
-	
 	text-shadow: 1px 1px 1px #ffffff;
+}
+
+.navigation {
+	position: fixed;
+	top: 0px;
+
+	width: 230px;
+	min-width: 150px;
+}
+
+.navigation.left {
+	left: -200px;
+}
+
+.navigation.right {
+	right: -180px;
+}
+
+.navigation-item {
+	position: relative;
+	left: 0px;
+	
+	width: 100%;
+	margin-top: 10px;
+	padding: 7px 10px;
+	
+	background-color: #eeeeee;
+	z-index: 1000;
+	
+	
+	-webkit-transition: left 0.5s ease-in-out 0s;
+	-moz-transition: left 0.5s ease-in-out 0s;
+	-ms-transition: left 0.5s ease-in-out 0s;
+	-o-transition: left 0.5s ease-in-out 0s;
+	transition: left 0.5s ease-in-out 0s;
+	
+}
+.navigation  a{
+	text-decoration: none;
+	color:#3f3f3f;
+}
+
+.navigation  a:visited{
+	color:#7c7c7c;
+}
+
+.left .navigation-item {
+	-webkit-border-radius: 0px 10px 10px 0px;
+	-moz-border-radius: 0px 10px 10px 0px;
+	-o-border-radius: 0px 10px 10px 0px;
+	border-radius: 0px 10px 10px 0px;
+}
+
+.right .navigation-item {
+	text-align: right;
+	-webkit-border-radius: 10px 0px 0px 10px;
+	-moz-border-radius: 10px 0px 0px 10px;
+	-o-border-radius: 10px 0px 0px 10px;
+	border-radius: 10px 0px 0px 10px;
+}
+
+.left .navigation-item:hover{
+	left: 200px;
+}
+
+.right .navigation-item:hover{
+	left: -200px;
+}
+
+.navigation-item .icon {
+	width: 26px;
+	height: 26px;
+	margin-top: -3px;
+}
+
+.icon.general {
+	background: url('/img/icons/businessman.png') 0 0 no-repeat;
+}
+.icon.experience {
+	background: url('/img/icons/briefcase.png') 0 0 no-repeat;
+}
+.icon.answers {
+	background: url('/img/icons/keyboard.png') 0 0 no-repeat;
+}
+.icon.print {
+	background: url('/img/icons/print.png') 0 0 no-repeat;
+}
+
+.left   .icon {
+	float: right;
+}
+
+.right   .icon {
+	float: left;
 }
 
 .content .section {
@@ -65,7 +152,7 @@ body {
 	padding: 0px 5px;
 	
 	background-color: #eeeeee;
-	background: url('/img/light_alu.png') 0 0 repeat;
+	background: url('/img/background/light_alu.png') 0 0 repeat;
 }
 
 .section  .section-items {
@@ -137,7 +224,7 @@ body {
 }
 
 .code-example .trigger-container:hover{
-	box-shadow: 0 0 5px #ffffff
+	/*box-shadow: 0 0 5px #ffffff*/
 }
 
 .code-example .trigger:hover {
@@ -153,7 +240,7 @@ body {
 	padding: 1px 0px;
 }
 .syntaxhighlighter.nogutter {
-	padding: 0px 0px 0px 10px !important;
+	padding-left: 10px !important;
 }
 
 

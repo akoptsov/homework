@@ -1,0 +1,11 @@
+.navigation-item .text{
+	position: relative;
+	top: 5px;
+}
+.navigation-item .icon {
+	margin-top: -18px;
+}
+
+.code-example.collapsed  .code{
+	display: none;
+}
