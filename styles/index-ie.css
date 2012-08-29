@@ -1,11 +1,12 @@
-.navigation-item .text{
+.b-content_browse .b-navigation__item-text{
 	position: relative;
 	top: 5px;
 }
-.navigation-item .icon {
+
+.b-content_browse .b-navigation__item-icon {
 	margin-top: -18px;
 }
 
-.code-example.collapsed  .code{
+.b-code-example_collapsed  .b-code-example__code{
 	display: none;
 }
