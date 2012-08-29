@@ -85,14 +85,27 @@ body {
 	-moz-border-radius: 0px 10px 10px 0px;
 	-o-border-radius: 0px 10px 10px 0px;
 	border-radius: 0px 10px 10px 0px;
+	
+	-webkit-box-shadow: 2px 2px 4px #3f3f3f;
+	-moz-box-shadow: 2px 2px 4px #3f3f3f;
+	-o-box-shadow: 2px 2px 4px #3f3f3f;
+	-ms-box-shadow: 2px 2px 4px #3f3f3f;
+	box-shadow: 2px 2px 4px #3f3f3f;
 }
 
 .right .navigation-item {
 	text-align: right;
+	
 	-webkit-border-radius: 10px 0px 0px 10px;
 	-moz-border-radius: 10px 0px 0px 10px;
 	-o-border-radius: 10px 0px 0px 10px;
 	border-radius: 10px 0px 0px 10px;
+	
+	-webkit-box-shadow: -2px 2px 4px #3f3f3f;
+	-moz-box-shadow: -2px 2px 4px #3f3f3f;
+	-o-box-shadow: -2px 2px 4px #3f3f3f;
+	-ms-box-shadow: -2px 2px 4px #3f3f3f;
+	box-shadow: -2px 2px 4px #3f3f3f;
 }
 
 .left .navigation-item:hover{
@@ -133,6 +146,10 @@ body {
 .content .section {
 	width: 100%;
 	border: solid #7c7c7c;
+	
+	line-height: 1.2em;
+	
+	margin-top: 35px;
 	border-width: 1px 0px 0px 0px;
 }
 
@@ -167,6 +184,7 @@ body {
 
 .section .item-content {
 	padding: 0px 15px;
+	text-indent: 15px;
 	text-align: justify;
 	list-style-type: none;
 }
@@ -211,6 +229,7 @@ body {
 	-o-transition: max-height 0.6s ease-in-out 0.1s;
 	transition: max-height 0.6s ease-in-out 0.1s;
 	
+	text-indent: 0px;
 	max-height: 2000px;
 	overflow: hidden;
 }
@@ -239,9 +258,11 @@ body {
 .syntaxhighlighter {
 	padding: 1px 0px;
 }
+
 .syntaxhighlighter.nogutter {
 	padding-left: 10px !important;
 }
+
 
 
 
