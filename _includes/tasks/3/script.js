@@ -44,7 +44,8 @@ function CarDealer(name) {
 	var 
 		self = this,
 		priceReader = /\s*([^\d\s]+)\s*(\d+)\s*/i,
-		//@NOTE: в боевом режиме, обменник должен инициализироваться с какого-то источника курсов валют, и код тогда будет асинхронным.
+		//@NOTE: в боевом режиме, обменник должен инициализироваться с источника курсов валют.
+		// В этом случае код будет асинхронным.
 		// Поскольку это тестовое задание, он проинициализирован статически.
 		exchanger = new CurrencyManager({
 			'EUR': 0.805917,
@@ -64,7 +65,9 @@ function CarDealer(name) {
 			if(self.cars[i].toString() === id){
 				var match = price.match(priceReader);
 				if(match.length >= 3){
-					self.cars[i].price = {currency: exchanger.resolve(match[1]), value: match[2]};
+					self.cars[i].price = {
+						currency: exchanger.resolve(match[1]), 
+					value: match[2]};
 				}
 			}
 		}
@@ -89,7 +92,11 @@ function CarDealer(name) {
 		var _cars = [];
 		for(var i = 0, count = self.cars.length; i < count; i++) {
 			var price = self.cars[i].price 
-				? exchanger.convert(self.cars[i].price.currency, self.cars[i].price.value, exchanger.resolve(symbol))
+				? exchanger.convert(
+						self.cars[i].price.currency, 
+						self.cars[i].price.value, 
+						exchanger.resolve(symbol)
+					)
 				: 'unknown'
 			_cars.push(self.cars[i] +' - ' + symbol + price);
 		}
@@ -125,7 +132,8 @@ var CurrencyManager = function(courses){
 
 var yandex = new CarDealer('Яндекс.Авто');
 
-// @DONE: реализовать метод добавления машин в автосалон. Предусмотреть возможность добавления одной машины, нескольких машин.
+// @DONE: реализовать метод добавления машин в автосалон. 
+// Предусмотреть возможность добавления одной машины, нескольких машин.
 yandex
     .add(toyota)
     .add(bmw, audi);
@@ -143,7 +151,8 @@ yandex
     .setPrice('Audi Q5 2012', '€3000')
     .setPrice('Toyota Camry 2012', '?3000');
 
-// @DONE: реализовать вывод списка автомобилей в продаже, с фильтрацией по стране производителю, используя метод getCountry:
+// @DONE: реализовать вывод списка автомобилей в продаже, с фильтрацией по стране-производителю,
+// используя метод getCountry:
 function getCountry() {
     switch (this.manufacturer.toLowerCase()) {
         case 'bmw':
