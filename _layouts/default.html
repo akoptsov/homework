@@ -22,7 +22,10 @@
 	<script type="text/javascript" src="/syntax-highlighter/scripts/shBrushBash.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			window.SyntaxHighlighter && window.SyntaxHighlighter.all();
+			if(window.SyntaxHighlighter) {
+				window.SyntaxHighlighter.defaults['toolbar'] = false;
+				window.SyntaxHighlighter.all();
+			}
 			
 			$('.b-code-example').on('click', function(e) {
 				$(e.target).is('.b-code-example__trigger') && $(this).toggleClass('b-code-example_collapsed');

@@ -3,6 +3,7 @@
 	padding: 0px;
 	font-family: Times New Roman, Georgia, serif;
 }
+
 .b-content_print .b-content__title {
 	padding-left: 3%;
 	text-align: center;
@@ -17,6 +18,7 @@
 	width: 100%;
 }
 
+
 .b-article__section_general, 
 .b-article__section_experience {
 	page-break-after: always;
@@ -29,20 +31,51 @@
 .b-content_print  .b-article__section__items {
 	padding-left: 3%;
 	list-style-type: none;
+	padding-top: 15px;
+}
+
+.b-content_print .b-article__section__item {
+	padding-bottom: 15px;
 }
 
 .b-content_print .b-article__section__item-name {
 	font-weight: bold;
+	padding-bottom: 10px;
 }
 
 .b-content_print .b-article__section__item-content {
 	padding: 0px 15px;
 	text-align: justify;
+}
+
+.b-content_print .b-enumeration {
+	text-indent: 0px;
+}
+
+.b-enumeration_nobullet {
+	padding-left: 15px;
 	list-style-type: none;
+}
+
+.b-enumeration_noindent{
+	padding-left: 0px;
 }
 
 .b-content_print .b-inline_code {
 	font-family: Courier New;
+}
+
+.b-content_print .b-inline_href {
+	color: black;
+	
+	border: dashed 1px;
+	border-width: 0px 0px 1px 0px;
+	
+	text-decoration:none;
+}
+
+.b-content_print .b-inline_href:hover {
+	color: #7c7c7c;
 }
 
 .b-content_print .b-code-example__trigger-container{
